@@ -5,7 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Portfolio</title>
     <link rel="stylesheet" href="/static/style.css">
-<script type="text/javascript" src="https://ff.kis.v2.scr.kaspersky-labs.com/FD126C42-EBFA-4E12-B309-BB3FDD723AC1/main.js?attr=ZkYY_Vl7MdRnNGa4hE4p1okBTwUy6bE5d8Fn4qG7rU9QqjCJrr1XJZdL39WmgalqeDYaNm8W6-9gmetOIPbstQ" charset="UTF-8"></script></head>
+    <script type="text/javascript" src="https://ff.kis.v2.scr.kaspersky-labs.com/FD126C42-EBFA-4E12-B309-BB3FDD723AC1/main.js?attr=ZkYY_Vl7MdRnNGa4hE4p1okBTwUy6bE5d8Fn4qG7rU9QqjCJrr1XJZdL39WmgalqeDYaNm8W6-9gmetOIPbstQ" charset="UTF-8"></script>
+</head>
 <body>
     
     <header>
@@ -15,6 +16,10 @@
             <p class="quote">"Talk is cheap. Show me the code." - Linus Torvalds</p>
         </div>
     </header>
+    
+    <button id="theme-toggle" style="background: none; border: none; cursor: pointer; font-size: 2em; color: #e6e6e6;">
+        🌙
+    </button>
     
     <main>
         <section id="about">
@@ -47,8 +52,8 @@
                 <li> 
                     Certifications
                     <ul class="dropdown">
-                    <li><a href="https://certs.ibsec.com.br/?cert_hash=97493760d2db8082" target="_blank" style="text-decoration: none;"> ISO-17024 | IC-PEN-1560</a></li>
-                    <li><a href="https://certs.ibsec.com.br/?cert_hash=c3976b818f132049" target="_blank" style="text-decoration: none;"> PT-IC-SOC-380</a></li>
+                    <li><a href="https://certs.ibsec.com.br/?cert_hash=97493760d2db8082" target="_blank" style="text-decoration: none;">ISO-17024 | IC-PEN-1560</a></li>
+                    <li><a href="https://certs.ibsec.com.br/?cert_hash=c3976b818f132049" target="_blank" style="text-decoration: none;">PT-IC-SOC-380</a></li>
                     <li><a href="https://certs.ibsec.com.br/?cert_hash=12f35310bd31b76b" target="_blank" style="text-decoration: none;">PT-IC-LNX-1180</a></li>
                     <li><a href="https://certs.ibsec.com.br/?cert_hash=721dac00d4467aaf" target="_blank" style="text-decoration: none;">PT-IC-SEC-1780</a></li>
                     <li><a href="https://www.cloudskillsboost.google/public_profiles/52f87000-1206-45d7-9426-4cc9612d4b00" target="_blank" style="text-decoration: none;">GCP</a></li>
@@ -111,28 +116,28 @@
             </ul>
         </section>
          
-    <section id="hosting-projects">
-        <h2>Projects</h2>
-        <p>One of my main projects:</p>
-        <ul>
-            <li>
-                <strong><a href="https://github.com/cesarbtakeda/H00ks_T0x1na_Ph1shing" target="_blank" style="text-decoration: none;">H00ks_T0x1na_Ph1shing </a></strong>
-                <p>H00ks_T0x1na_Ph1shing is a Phishing (Social Engineering) tool used to remotely control a computer or a mobile phone from links as a helper. It is written in HTML, CSS, PHP, JavaScript, BashScript and is compatible with Windows, Android and probably iPhone. It was created to be stable, completely open source, easy to use and with many customizable features. Improvements added in the Alpha 0.1 version... Now having an internal API of models, where there will be a "graphical interface" "setup.sh" where the user can choose the Specific social engineering or choose the complete one, number 2 is still under development...</p>
-            </li>
-            <li>
-            <strong><a href="https://github.com/cesarbtakeda/7-Zip-CVE-2025-0411-POC" target="_blank" style="text-decoration: none;"> 7-Zip-CVE-2025-0411-Exploit</a></strong> 
-            <p>This vulnerability (CVSS SCORE 7.0) allows remote attackers to bypass the Mark-of-the-Web protection mechanism on affected installations of 7-Zip. User interaction is required to exploit this vulnerability in that the target must visit a malicious page or open a malicious file. The specific flaw exists within the handling of archived files. When extracting files from a crafted archive that bears the Mark-of-the-Web, 7-Zip does not propagate the Mark-of-the-Web to the extracted files. An attacker can leverage this vulnerability to execute arbitrary code in the context of the current user."</p>
-            </li>
-            <li>
-            <strong><a href="https://github.com/cesarbtakeda/instainsane1.1" target="_blank" style="text-decoration: none;">InstaInsane</a></strong>
-            <p>InstaInsane BackEnd Python instainsane was a project started with the aim of facilitating bruteforce attacks in controlled environments, so that it was fast, clean, and could bypass quickly.</p>            
-           </li>
-           <li>
-           <strong><a href="https://github.com/cesarbtakeda/Am3b4_t00ls" target="_blank" style="text-decoration: none;">Am3b4_T00ls</a></strong>
-           <p>Ameba is a creation of my own solution for bug bounty, it is an automation tool when you don't have much time to do a bug bounty, or when you are pressed for time, am3b4 was developed with the best bug bounty tools to use, the tool strings can also be modified, but of course they are already predefined</p>
-           </li>
-        </ul>
-    </section>
+        <section id="hosting-projects">
+            <h2>Projects</h2>
+            <p>One of my main projects:</p>
+            <ul>
+                <li>
+                    <strong><a href="https://github.com/cesarbtakeda/H00ks_T0x1na_Ph1shing" target="_blank" style="text-decoration: none;">H00ks_T0x1na_Ph1shing</a></strong>
+                    <p>H00ks_T0x1na_Ph1shing is a Phishing (Social Engineering) tool used to remotely control a computer or a mobile phone from links as a helper. It is written in HTML, CSS, PHP, JavaScript, BashScript and is compatible com Windows, Android e provavelmente iPhone. Foi criado para ser estável, completamente open source, fácil de usar e com muitos recursos personalizáveis. Melhorias foram adicionadas na versão Alpha 0.1... Agora tem uma API interna de modelos, onde haverá uma "interface gráfica" "setup.sh" onde o usuário pode escolher a engenharia social específica ou escolher a completa, o número 2 ainda está em desenvolvimento...</p>
+                </li>
+                <li>
+                <strong><a href="https://github.com/cesarbtakeda/7-Zip-CVE-2025-0411-POC" target="_blank" style="text-decoration: none;">7-Zip-CVE-2025-0411-Exploit</a></strong> 
+                <p>Esta vulnerabilidade (CVSS SCORE 7.0) permite que atacantes remotos contornem o mecanismo de proteção Mark-of-the-Web em instalações afetadas do 7-Zip. A interação do usuário é necessária para explorar essa vulnerabilidade, uma vez que o alvo deve visitar uma página maliciosa ou abrir um arquivo malicioso. O defeito específico existe dentro do manuseio de arquivos compactados. Ao extrair arquivos de um arquivo criado que possui o Mark-of-the-Web, o 7-Zip não propaga o Mark-of-the-Web para os arquivos extraídos. Um atacante pode aproveitar essa vulnerabilidade para executar código arbitrário no contexto do usuário atual.</p>
+                </li>
+                <li>
+                <strong><a href="https://github.com/cesarbtakeda/instainsane1.1" target="_blank" style="text-decoration: none;">InstaInsane</a></strong>
+                <p>InstaInsane BackEnd Python instainsane foi um projeto iniciado com o objetivo de facilitar ataques bruteforce em ambientes controlados, para que fosse rápido, limpo e pudesse contornar rapidamente.</p>            
+               </li>
+               <li>
+               <strong><a href="https://github.com/cesarbtakeda/Am3b4_t00ls" target="_blank" style="text-decoration: none;">Am3b4_T00ls</a></strong>
+               <p>Ameba é uma criação da minha própria solução para bug bounty, é uma ferramenta de automação quando você não tem muito tempo para fazer um bug bounty, ou quando está pressionado pelo tempo, am3b4 foi desenvolvido com as melhores ferramentas de bug bounty para usar, as strings da ferramenta também podem ser modificadas, mas claro que já estão pré-definidas.</p>
+               </li>
+            </ul>
+        </section>
 
         <section id="bug-bounty">
             <h2>Bug Bounty Projects</h2>
@@ -150,25 +155,26 @@
                     <p>Platform: HackerOne</p>
                     <p>Date: September 29, 2024</p>
                 </li>
-               <li>
-               <strong>CacauShow</strong>
-               <p>Reflected XSS found in the search field of Cacau Show, logically the XSS executes scripts due to the lack of sanitization of Java Script, thus saying that it can be escalated to an HtmlLi from HTMLLi to an RCE thus fixing the session with the server without much difficulty, this XSS is of a medium to high severity level, due to the ease of privilege escalation! Here is the vulnerable search field</p>
-               <p>No platform.</p>   
-               <p>Reportad on Date: March 9, 2025</p>
-            </li>
                 <li>
-                <strong>Playtika</strong>
-              <p>Open Redirect and banner grabbing found on playtika subdomain bingoblitz.com</p>  
-             <p>Platform: HackerOne</p>
-             <p>Reportad on date: March 19, 2025</p>
-            </li>
+                <strong>CacauShow</strong>
+                <p>Reflected XSS found in the search field of Cacau Show, logically the XSS executes scripts due to the lack of sanitization of Java Script, thus saying that it can be escalated to an HtmlLi from HTMLLi to an RCE thus fixing the session with the server without much difficulty, this XSS is of a medium to high severity level, due to the ease of privilege escalation! Here is the vulnerable search field</p>
+                <p>No platform.</p>   
+                <p>Reportad on Date: March 9, 2025</p>
+                </li>
+                <li>
+                    <strong>Playtika</strong>
+                    <p>Open Redirect and banner grabbing found on playtika subdomain bingoblitz.com</p>  
+                    <p>Platform: HackerOne</p>
+                    <p>Reportad on date: March 19, 2025</p>
+                </li>
             </ul>
         </section>
- <section id="hosting-projects">
+
+        <section id="hosting-projects">
             <h2>Contact me</h2>
             <ul>
-                       <li>
-                       <ul>
+                <li>
+                    <ul>
                         <li><a href="https://www.linkedin.com/in/cesarbtakeda" target="_blank" style="text-decoration: none;">Linkedin</a></li>
                         <li><a href="https://github.com/cesarbtakeda" target="_blank" style="text-decoration: none;">Github</a></li>
                         <li><a href="mailto:cesaraugustobardelotti@gmail.com" target="_blank" style="text-decoration: none;">Email</a></li>
@@ -176,12 +182,11 @@
                     </ul>
                 </li>
             </ul>
- </section>
+        </section>
         
         <section id="my-activity"> 
             <h2>My Activity</h2>
             <p>Past 24 hours</p>
-
             <canvas id="activityChart"></canvas>
         </section>
         
@@ -228,12 +233,10 @@
         });
 
         const themeToggle = document.getElementById('theme-toggle');
-themeToggle.addEventListener('click', () => {
-    document.body.classList.toggle('light');
-    themeToggle.textContent = document.body.classList.contains('light') ? '☀️' : '🌙'; // Altera o ícone
-});
-
-
+        themeToggle.addEventListener('click', () => {
+            document.body.classList.toggle('light');
+            themeToggle.textContent = document.body.classList.contains('light') ? '☀️' : '🌙'; // Altera o ícone
+        });
     </script>
 
     <footer>
