@@ -6,7 +6,7 @@
 
 body {
     font-family: 'Courier New', monospace;
-    background: linear-gradient(-45deg, #0a0a0a, #1a0022, #4d004d, #800080);
+    background: linear-gradient(-45deg, #0a0a0a, #0072ff, #00c6ff, #00ff7f);
     background-size: 400% 400%;
     animation: gradientBG 15s ease infinite;
     color: #e6e6e6;
@@ -16,6 +16,19 @@ body {
     min-height: 100vh;
     display: flex;
     flex-direction: column;
+    transition: background 0.5s, color 0.5s; /* Transição suave */
+}
+
+body.light {
+    background: linear-gradient(-45deg, #ffffff, #f0f0f0);
+    color: #000000;
+}
+
+button {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 1000;
 }
 
 header {
