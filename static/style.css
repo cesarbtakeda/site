@@ -4,9 +4,10 @@
     100% { background-position: 0% 50%; }
 }
 
+/* Estilos padrão (Tema Escuro) */
 body {
     font-family: 'Courier New', monospace;
-    background: linear-gradient(-45deg, #0a0a0a, #0072ff, #00c6ff, #00ff7f);
+    background: linear-gradient(-45deg, #0a0a0a, #1a0022, #4d004d, #800080);
     background-size: 400% 400%;
     animation: gradientBG 15s ease infinite;
     color: #e6e6e6;
@@ -20,8 +21,8 @@ body {
 }
 
 body.light {
-    background: linear-gradient(-45deg, #ffffff, #f0f0f0);
-    color: #000000;
+    background: #002b36; /* Fundo azul escuro */
+    color: #ffffff; /* Texto claro */
 }
 
 button {
