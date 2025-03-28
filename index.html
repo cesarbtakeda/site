@@ -227,6 +227,13 @@
             });
         });
 
+        const themeToggle = document.getElementById('theme-toggle');
+themeToggle.addEventListener('click', () => {
+    document.body.classList.toggle('light');
+    themeToggle.textContent = document.body.classList.contains('light') ? '☀️' : '🌙'; // Altera o ícone
+});
+
+
     </script>
 
     <footer>
