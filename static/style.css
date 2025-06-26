@@ -21,8 +21,18 @@ body {
 }
 
 body.light {
-    background: #002b36; /* Fundo azul escuro */
-    color: #ffffff; /* Texto claro */
+    font-family: 'Courier New', monospace;
+    background: linear-gradient(-45deg, #0a0a0a, #ff002b, #0c004d, #001780);
+    background-size: 400% 400%;
+    animation: gradientBG 15s ease infinite;
+    color: #e6e6e6;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    transition: background 0.5s, color 0.5s; /* Transição suave */
 }
 
 button {
