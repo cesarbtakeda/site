@@ -1,3 +1,3 @@
 # site
 
-Meu portfolio
+Meu portfolio feito em JS, PHP, Html, CSS
