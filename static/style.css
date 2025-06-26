@@ -22,7 +22,7 @@ body {
 
 body.light {
     font-family: 'Courier New', monospace;
-    background: linear-gradient(-45deg, #0a0a0a, #ff002b, #0c004d, #001780);
+    background: linear-gradient(-45deg, #e90b0b, #ff002b, #2707e0, #001780);
     background-size: 400% 400%;
     animation: gradientBG 15s ease infinite;
     color: #e6e6e6;
