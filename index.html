@@ -1,4 +1,5 @@
 <?php
+// Controle CORS seguro só para seu domínio
 $origin = $_SERVER['HTTP_ORIGIN'] ?? '';
 if ($origin && preg_match('/^https:\/\/cesarbtakeda\.netlify\.app$/', $origin)) {
     header("Access-Control-Allow-Origin: $origin");
@@ -6,6 +7,7 @@ if ($origin && preg_match('/^https:\/\/cesarbtakeda\.netlify\.app$/', $origin)) 
     header("Access-Control-Allow-Methods: GET, POST, OPTIONS");
     header("Access-Control-Allow-Headers: Content-Type, Authorization");
 }
+// Rotas válidas
 $request_uri = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
 $rotas_validas = ['/', '/home', '/sobre', '/contato'];
 if (!in_array($request_uri, $rotas_validas)) {
@@ -13,19 +15,22 @@ if (!in_array($request_uri, $rotas_validas)) {
     include __DIR__ . '/404.html';
     exit;
 }
+
+// Função simples para escapar HTML (XSS)
+function e($string) {
+    return htmlspecialchars($string, ENT_QUOTES, 'UTF-8');
+}
 ?>
 
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portfolio</title>
-    <link rel="stylesheet" href="/static/style.css">
-    <script type="text/javascript" charset="UTF-8"></script>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Portfolio CesarBTakeda</title>
+    <link rel="stylesheet" href="/static/style.css" />
 </head>
 <body>
-    
     <header>
         <div id="ascii-art" class="ascii-art"></div>
         <div class="header-text">
@@ -33,46 +38,46 @@ if (!in_array($request_uri, $rotas_validas)) {
             <p class="quote">"Talk is cheap. Show me the code." - Linus Torvalds</p>
         </div>
     </header>
-    
-    <button id="theme-toggle" style="background: none; border: none; cursor: pointer; font-size: 2em; color: #e6e6e6;">
+
+    <button id="theme-toggle" style="background:none; border:none; cursor:pointer; font-size:2em; color:#e6e6e6;">
         🌙
     </button>
-    
+
     <main>
         <section id="about">
             <h2>About Me</h2>
             <p>Passionate about technology and cybersecurity. Skilled in various aspects of hacking, programming, and network security.</p>
         </section>
-        
+
         <section id="skills">
             <h2>Skills</h2>
             <ul>
                 <li>
                     Databases
-                    <ul class="dropdown">                    
+                    <ul class="dropdown">
                         <li>MySQL</li>
                         <li>And others...</li>
                     </ul>
                 </li>
                 <li>
-                 Operating System Used (OS) 
-                <ul class="dropdown">
-                <li>Debian 12</li>
-                <li>Kali Wsl</li>
-                <li>ArchLinux</li>
-                <li>BlackArch Linux</li>
-                <li>Win 11 + WSL</li>
-                </ul>
-                </li> 
-                <li> 
+                    Operating System Used (OS)
+                    <ul class="dropdown">
+                        <li>Debian 12</li>
+                        <li>Kali Wsl</li>
+                        <li>ArchLinux</li>
+                        <li>BlackArch Linux</li>
+                        <li>Win 11 + WSL</li>
+                    </ul>
+                </li>
+                <li>
                     Certifications
                     <ul class="dropdown">
-                    <li><a href="https://certs.ibsec.com.br/?cert_hash=97493760d2db8082" target="_blank" style="text-decoration: none;">ISO-17024 | IC-PEN-1560</a></li>
-                    <li><a href="https://certs.ibsec.com.br/?cert_hash=c3976b818f132049" target="_blank" style="text-decoration: none;">PT-IC-SOC-380</a></li>
-                    <li><a href="https://certs.ibsec.com.br/?cert_hash=12f35310bd31b76b" target="_blank" style="text-decoration: none;">PT-IC-LNX-1180</a></li>
-                    <li><a href="https://certs.ibsec.com.br/?cert_hash=721dac00d4467aaf" target="_blank" style="text-decoration: none;">PT-IC-SEC-1780</a></li>
-                    <li><a href="https://www.cloudskillsboost.google/public_profiles/52f87000-1206-45d7-9426-4cc9612d4b00" target="_blank" style="text-decoration: none;">GCP</a></li>
-                    </ul>    
+                        <li><a href="https://certs.ibsec.com.br/?cert_hash=97493760d2db8082" target="_blank" rel="noopener noreferrer">ISO-17024 | IC-PEN-1560</a></li>
+                        <li><a href="https://certs.ibsec.com.br/?cert_hash=c3976b818f132049" target="_blank" rel="noopener noreferrer">PT-IC-SOC-380</a></li>
+                        <li><a href="https://certs.ibsec.com.br/?cert_hash=12f35310bd31b76b" target="_blank" rel="noopener noreferrer">PT-IC-LNX-1180</a></li>
+                        <li><a href="https://certs.ibsec.com.br/?cert_hash=721dac00d4467aaf" target="_blank" rel="noopener noreferrer">PT-IC-SEC-1780</a></li>
+                        <li><a href="https://www.cloudskillsboost.google/public_profiles/52f87000-1206-45d7-9426-4cc9612d4b00" target="_blank" rel="noopener noreferrer">GCP</a></li>
+                    </ul>
                 </li>
                 <li>
                     Hacking and Penetration Testing
@@ -86,7 +91,7 @@ if (!in_array($request_uri, $rotas_validas)) {
                 <li>
                     Programming Languages
                     <ul class="dropdown">
-                        <li>PhP</li>
+                        <li>PHP</li>
                         <li>JavaScript</li>
                         <li>Python</li>
                         <li>BashScript</li>
@@ -106,7 +111,7 @@ if (!in_array($request_uri, $rotas_validas)) {
                     <ul class="dropdown">
                         <li>HTML/CSS</li>
                         <li>JS</li>
-                        <li>PHP.8</li>
+                        <li>PHP 8</li>
                     </ul>
                 </li>
                 <li>
@@ -128,28 +133,44 @@ if (!in_array($request_uri, $rotas_validas)) {
                 </li>
             </ul>
         </section>
-         
-        <section id="hosting-projects">
+
+        <section id="projects">
             <h2>Projects</h2>
-            <p>One of my main projects:</p>
             <ul>
                 <li>
-                    <strong><a href="https://github.com/cesarbtakeda/Tool-Anti-Phishing" target="_blank" style="text-decoration: none;">Tool-Anti-Phishing</a></strong> 
-                    <p>Tool developed to intercept phishing connections...</p>
+                    <strong><a href="https://github.com/cesarbtakeda/Tool-Anti-Phishing" target="_blank" rel="noopener noreferrer">Tool-Anti-Phishing</a></strong>
+                    <p>Tool developed to intercept phishing connections and fill the attacker's log cache. Uses Tor network and proxies for user anonymity. Also intercepts Trojans, phishing emails and takes down VPNs connected to local public IPs.</p>
                 </li>
-                <!-- Demais projetos iguais ao seu original -->
+                <li>
+                    <strong><a href="https://github.com/cesarbtakeda/UPX_PROJETO_GESTAO_DE_RECLAMACAO" target="_blank" rel="noopener noreferrer">UPX_PROJETO_GESTAO_DE_RECLAMACAO</a></strong>
+                    <p>Developed at my college during the UPX course to manage complaints dynamically, generating daily reports from any company, city or union.</p>
+                </li>
+                <li>
+                    <strong><a href="https://github.com/cesarbtakeda/H00ks_T0x1na" target="_blank" rel="noopener noreferrer">H00ks_T0x1na</a></strong>
+                    <p>A phishing framework (Social Engineering) tool for remote control of computers and mobile phones. Written in HTML, CSS, PHP, JavaScript, BashScript. Compatible with Windows, Android, and probably iPhone.</p>
+                </li>
+                <li>
+                    <strong><a href="https://github.com/cesarbtakeda/7-Zip-CVE-2025-0411-POC" target="_blank" rel="noopener noreferrer">7-Zip-CVE-2025-0411-Exploit</a></strong>
+                    <p>Remote code execution vulnerability in 7-Zip due to improper Mark-of-the-Web handling in archives. CVSS 7.0.</p>
+                </li>
+                <li>
+                    <strong><a href="https://github.com/cesarbtakeda/instainsane1.1" target="_blank" rel="noopener noreferrer">InstaInsane</a></strong>
+                    <p>Backend Python project for fast and clean bruteforce attacks in controlled environments.</p>
+                </li>
+                <li>
+                    <strong><a href="https://github.com/cesarbtakeda/Am3b4_t00ls" target="_blank" rel="noopener noreferrer">Am3b4_T00ls</a></strong>
+                    <p>Automated bug bounty tool with preconfigured tool strings, designed for efficiency when time is short.</p>
+                </li>
             </ul>
         </section>
 
         <section id="bug-bounty">
             <h2>Bug Bounty Experience</h2>
-            <p>Here are some of the bug bounty projects I've participated in:</p>
             <ul>
                 <li>
                     Pichau Bug
                     <ul class="dropdown">
-                        <li><strong>Target:</strong> Pichau</li>
-                        <li><strong>Vulnerability:</strong> OpenRedirect | CWE-601</li>
+                        <li><strong>Vuln:</strong> OpenRedirect | CWE-601</li>
                         <li><strong>Platform:</strong> OpenBugbounty</li>
                         <li><strong>Date:</strong> June 26, 2025</li>
                     </ul>
@@ -157,46 +178,46 @@ if (!in_array($request_uri, $rotas_validas)) {
                 <li>
                     9altitudes
                     <ul class="dropdown">
-                        <li><strong>Vulnerability:</strong> XSS | CWE-79</li>
-                        <li><strong>Details:</strong> Found during recon phase...</li>
+                        <li><strong>Vuln:</strong> XSS | CWE-79</li>
                         <li><strong>Platform:</strong> Intigriti</li>
                         <li><strong>Date:</strong> June 26, 2025</li>
+                        <li><strong>Note:</strong> Found during recon phase; bypassed WAF using div mouseover payload.</li>
                     </ul>
                 </li>
                 <li>
-                    GlasDoor
+                    GlassDoor
                     <ul class="dropdown">
-                        <li><strong>Vulnerability:</strong> CSRF | CWE-532</li>
-                        <li><strong>Details:</strong> Token without expiration...</li>
+                        <li><strong>Vuln:</strong> CSRF | CWE-532</li>
                         <li><strong>Platform:</strong> HackerOne</li>
                         <li><strong>Date:</strong> February 16, 2025</li>
+                        <li><strong>Note:</strong> Token without expiration; reusable after first use.</li>
                     </ul>
                 </li>
                 <li>
                     Trip
                     <ul class="dropdown">
-                        <li><strong>Vulnerability:</strong> RCE</li>
-                        <li><strong>Details:</strong> Vulnerable DNS server...</li>
+                        <li><strong>Vuln:</strong> RCE</li>
                         <li><strong>Platform:</strong> HackerOne</li>
                         <li><strong>Date:</strong> September 29, 2024</li>
+                        <li><strong>Note:</strong> Vulnerable DNS server & outdated nginx.</li>
                     </ul>
                 </li>
                 <li>
                     CacauShow
                     <ul class="dropdown">
-                        <li><strong>Vulnerability:</strong> XSS | CWE-79</li>
-                        <li><strong>Details:</strong> Reflected XSS in search field...</li>
-                        <li><strong>Platform:</strong> N/A</li>
+                        <li><strong>Vuln:</strong> XSS | CWE-79</li>
+                        <li><strong>Platform:</strong> None</li>
                         <li><strong>Date:</strong> March 9, 2025</li>
+                        <li><strong>Note:</strong> Reflected XSS in search field; potential escalation to RCE.</li>
                     </ul>
                 </li>
                 <li>
                     Playtika
                     <ul class="dropdown">
-                        <li><strong>Vulnerability:</strong> OpenRedirect | CWE-601</li>
-                        <li><strong>Details:</strong> Found on bingoblitz.com subdomain.</li>
+                        <li><strong>Vuln:</strong> OpenRedirect | CWE-601</li>
                         <li><strong>Platform:</strong> HackerOne</li>
                         <li><strong>Date:</strong> March 19, 2025</li>
+                        <li><strong>Note:</strong> Found on bingoblitz.com subdomain.</li>
                     </ul>
                 </li>
             </ul>
@@ -205,79 +226,144 @@ if (!in_array($request_uri, $rotas_validas)) {
         <section id="contact">
             <h2>Contact me</h2>
             <ul>
-                <li><a href="https://www.linkedin.com/in/cesarbtakeda" target="_blank" style="text-decoration: none;">Linkedin</a></li>
-                <li><a href="https://github.com/cesarbtakeda" target="_blank" style="text-decoration: none;">Github</a></li>
-                <li><a href="mailto:cesaraugustobardelotti@gmail.com" target="_blank" style="text-decoration: none;">Email</a></li>
-                <li><a href="https://wa.me/5515997224510?text=Oi,%20boa%20tarde%20,tudo%20bem?%20preciso%20tirar%20uma%20duvida!" target="_blank" style="text-decoration: none;">Whatsapp</a></li>
+                <li><a href="https://discordapp.com/users/cesarbtakeda#8404" target="_blank" rel="noopener noreferrer">Discord: cesarbtakeda#8404</a></li>
+                <li><a href="https://www.linkedin.com/in/cesarbtakeda/" target="_blank" rel="noopener noreferrer">Linkedin</a></li>
+                <li><a href="mailto:cesarbtakeda@gmail.com">Email: cesarbtakeda@gmail.com</a></li>
+                <li><a href="https://wa.me/5511911440027" target="_blank" rel="noopener noreferrer">WhatsApp +55 11 91144-0027</a></li>
             </ul>
         </section>
-        
-        <section id="my-activity"> 
-            <h2>My Activity</h2>
-            <p>Past 24 hours</p>
-            <canvas id="activityChart"></canvas>
-        </section>
-        
     </main>
-    
+
     <script>
-        fetch("/static/ascii.txt")
-            .then(response => response.text())
-            .then(data => {
-                document.getElementById('ascii-art').innerText = data;
-            })
-            .catch(error => console.error('Erro ao carregar o ASCII art:', error));
+        // Dropdown toggle (shared para skills e bug bounty)
+        function setupDropdowns(containerId) {
+            document.querySelectorAll(`#${containerId} > ul > li`).forEach(item => {
+                item.addEventListener('click', event => {
+                    event.stopPropagation();
+                    const dropdown = item.querySelector('.dropdown');
+                    if (!dropdown) return;
 
-        // Fecha dropdowns de skills ao clicar fora
-        document.addEventListener('click', (event) => {
-            const skillsSection = document.getElementById('skills');
-            if (!skillsSection.contains(event.target)) {
-                document.querySelectorAll('#skills .dropdown').forEach(d => d.classList.remove('active'));
+                    // Fecha todos os outros dropdowns
+                    document.querySelectorAll(`#${containerId} .dropdown`).forEach(d => {
+                        if (d !== dropdown) d.classList.remove('active');
+                    });
+
+                    dropdown.classList.toggle('active');
+                });
+            });
+        }
+
+        setupDropdowns('skills');
+        setupDropdowns('bug-bounty');
+
+        // Fecha dropdowns clicando fora
+        document.addEventListener('click', () => {
+            document.querySelectorAll('.dropdown.active').forEach(d => d.classList.remove('active'));
+        });
+
+        // Dark / Light mode toggle persistente com localStorage
+        const toggleBtn = document.getElementById('theme-toggle');
+        const body = document.body;
+        const darkModeClass = 'dark-mode';
+
+        // Inicializa tema pelo localStorage
+        if (localStorage.getItem('theme') === 'dark') {
+            body.classList.add(darkModeClass);
+            toggleBtn.textContent = '☀️';
+        }
+
+        toggleBtn.addEventListener('click', () => {
+            if (body.classList.contains(darkModeClass)) {
+                body.classList.remove(darkModeClass);
+                toggleBtn.textContent = '🌙';
+                localStorage.setItem('theme', 'light');
+            } else {
+                body.classList.add(darkModeClass);
+                toggleBtn.textContent = '☀️';
+                localStorage.setItem('theme', 'dark');
             }
         });
 
-        // Lógica de abrir/fechar skills
-        document.querySelectorAll('#skills > ul > li').forEach(item => {
-            item.addEventListener('click', (event) => {
-                const dropdown = item.querySelector('.dropdown');
-                event.stopPropagation();
-                document.querySelectorAll('#skills .dropdown').forEach(d => {
-                    if (d !== dropdown) d.classList.remove('active');
-                });
-                dropdown.classList.toggle('active');
-            });
-        });
-
-        // Fecha dropdowns de bug bounty ao clicar fora
-        document.addEventListener('click', (event) => {
-            const bugSection = document.getElementById('bug-bounty');
-            if (!bugSection.contains(event.target)) {
-                document.querySelectorAll('#bug-bounty .dropdown').forEach(d => d.classList.remove('active'));
-            }
-        });
-
-        // Lógica de abrir/fechar bug bounty
-        document.querySelectorAll('#bug-bounty > ul > li').forEach(item => {
-            item.addEventListener('click', (event) => {
-                const dropdown = item.querySelector('.dropdown');
-                event.stopPropagation();
-                document.querySelectorAll('#bug-bounty .dropdown').forEach(d => {
-                    if (d !== dropdown) d.classList.remove('active');
-                });
-                dropdown.classList.toggle('active');
-            });
-        });
-
-        // Alternar tema
-        const themeToggle = document.getElementById('theme-toggle');
-        themeToggle.addEventListener('click', () => {
-            document.body.classList.toggle('light');
-            themeToggle.textContent = document.body.classList.contains('light') ? '☀️' : '🌙';
-        });
+        // ASCII Art carregado via JS
+        const asciiArt = `
+         _____
+        |  __ \\
+        | |  | |_   _ _ __   __ _  ___ ___
+        | |  | | | | | '_ \\ / _\` |/ __/ _ \\
+        | |__| | |_| | | | | (_| | (_|  __/
+        |_____/ \\__,_|_| |_|\\__,_|\\___\\___|
+        `;
+        document.getElementById('ascii-art').textContent = asciiArt;
     </script>
 
-    <footer>
-        <p>&copy; 2025 CesarBTakeda</p>
-    </footer>
+    <style>
+        body {
+            font-family: 'Courier New', Courier, monospace;
+            background: #121212;
+            color: #e6e6e6;
+            margin: 0; padding: 0;
+        }
+        .dark-mode {
+            background: #e6e6e6;
+            color: #121212;
+        }
+        header {
+            display: flex;
+            align-items: center;
+            padding: 1rem;
+            background: #222;
+        }
+        .ascii-art {
+            white-space: pre;
+            font-family: monospace;
+            font-weight: bold;
+            color: #0f0;
+            margin-right: 1rem;
+        }
+        .header-text h1 {
+            margin: 0;
+            font-size: 2rem;
+        }
+        .header-text .quote {
+            font-style: italic;
+            opacity: 0.7;
+        }
+        ul {
+            list-style: none;
+            padding-left: 1rem;
+        }
+        ul li {
+            cursor: pointer;
+            margin: 0.5rem 0;
+        }
+        .dropdown {
+            display: none;
+            margin-left: 1rem;
+            cursor: default;
+        }
+        .dropdown.active {
+            display: block;
+        }
+        a {
+            color: #4db8ff;
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+        #theme-toggle {
+            position: fixed;
+            top: 1rem;
+            right: 1rem;
+            background: none;
+            border: none;
+            font-size: 1.8rem;
+            cursor: pointer;
+            color: #e6e6e6;
+        }
+        .dark-mode #theme-toggle {
+            color: #121212;
+        }
+    </style>
 </body>
 </html>
