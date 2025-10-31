@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>404 | Portofolio do Cesarbtakeda</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;700&display=swap');
+
+    :root {
+      --facens-blue: #004B8D;
+      --facens-light-blue: #0073E6;
+      --facens-orange: #F15A24;
+      --facens-light-orange: #FF7F50;
+      --facens-dark: #002B50;
+      --facens-gray: #f0f0f0;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body, html {
+      margin: 0; padding: 0;
+      height: 100%;
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(135deg, var(--facens-dark), var(--facens-blue));
+      color: var(--facens-gray);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      flex-direction: column;
+      padding: 20px;
+      overflow: hidden;
+    }
+
+    .container {
+      max-width: 500px;
+      width: 90%;
+      background: rgba(0,0,0,0.3);
+      padding: 40px;
+      border-radius: 15px;
+      box-shadow: 0 8px 30px rgba(0,0,0,0.6);
+      position: relative;
+    }
+
+    h1 {
+      font-size: 14vw;
+      margin: 0;
+      font-weight: 900;
+      color: var(--facens-orange);
+      text-shadow:
+        2px 2px 8px rgba(0,0,0,0.7),
+        0 0 25px var(--facens-orange);
+      animation: pulse 2.5s infinite ease-in-out;
+    }
+
+    @keyframes pulse {
+      0%, 100% {
+        text-shadow:
+          2px 2px 8px rgba(0,0,0,0.7),
+          0 0 25px var(--facens-orange);
+        transform: scale(1);
+      }
+      50% {
+        text-shadow:
+          2px 2px 20px rgba(0,0,0,0.9),
+          0 0 40px var(--facens-light-orange);
+        transform: scale(1.05);
+      }
+    }
+
+    h2 {
+      font-weight: 700;
+      font-size: 2.2rem;
+      margin: 10px 0 25px;
+      letter-spacing: 2px;
+      color: var(--facens-light-orange);
+      text-transform: uppercase;
+      text-shadow: 1px 1px 5px rgba(0,0,0,0.4);
+    }
+
+    p {
+      font-size: 1.1rem;
+      line-height: 1.5;
+      margin-bottom: 30px;
+      color: var(--facens-gray);
+      text-shadow: 0 0 3px rgba(0,0,0,0.2);
+    }
+
+    button {
+      padding: 15px 45px;
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--facens-blue);
+      background: var(--facens-orange);
+      border: none;
+      border-radius: 50px;
+      cursor: pointer;
+      transition: background-color 0.3s ease, transform 0.2s ease;
+      box-shadow: 0 6px 20px rgba(241, 90, 36, 0.7);
+    }
+
+    button:hover {
+      background: var(--facens-light-orange);
+      transform: scale(1.1);
+      box-shadow: 0 8px 25px rgba(255, 127, 80, 0.9);
+      color: var(--facens-dark);
+    }
+
+    /* GitHub-style "octocat" animation substitute */
+    .robot {
+      position: absolute;
+      bottom: -60px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 120px;
+      height: 120px;
+      background: var(--facens-orange);
+      border-radius: 50% 50% 45% 45% / 60% 60% 40% 40%;
+      box-shadow:
+        inset -15px -15px 0 3px var(--facens-light-orange),
+        0 0 20px var(--facens-orange);
+      animation: bob 3s ease-in-out infinite;
+    }
+
+    .robot::before, .robot::after {
+      content: '';
+      position: absolute;
+      background: var(--facens-light-orange);
+      border-radius: 50%;
+      top: 40px;
+      width: 25px;
+      height: 25px;
+      box-shadow: 0 0 10px rgba(255,255,255,0.4);
+    }
+
+    .robot::before {
+      left: 25px;
+      animation: eyeBlink 5s infinite;
+    }
+
+    .robot::after {
+      right: 25px;
+      animation: eyeBlink 5s infinite 2.5s;
+    }
+
+    @keyframes bob {
+      0%, 100% { transform: translateX(-50%) translateY(0); }
+      50% { transform: translateX(-50%) translateY(-15px); }
+    }
+
+    @keyframes eyeBlink {
+      0%, 5%, 10%, 100% { transform: scaleY(1); }
+      7.5% { transform: scaleY(0.1); }
+    }
+
+    @media (max-width: 480px) {
+      h1 {
+        font-size: 30vw;
+      }
+      h2 {
+        font-size: 1.6rem;
+      }
+      .container {
+        padding: 25px;
+      }
+      button {
+        width: 100%;
+        padding: 15px 0;
+      }
+      .robot {
+        width: 90px;
+        height: 90px;
+        bottom: -45px;
+      }
+      .robot::before, .robot::after {
+        width: 18px;
+        height: 18px;
+        top: 28px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <h1>404</h1>
+    <h2>Página Não Encontrada</h2>
+    <p>Oops! A página que você tentou acessar não está disponível ou foi removida.</p>
+    <button onclick="voltarHome()">Voltar para a página inicial</button>
+    <div class="robot" aria-hidden="true"></div>
+  </div>
+
+  <script>
+    function voltarHome() {
+      window.location.href = '/';
+    }
+  </script>
+  
+</body>
+</html>
